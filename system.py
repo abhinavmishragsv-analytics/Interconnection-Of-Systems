@@ -23,22 +23,6 @@ class System:
         return System(num, np.polymul(self.den, other.den),
                       f"{self.name} || {other.name}")
 
-    def feedback(self, other=None, sign=-1):
-        """H_eq = G / (1 +/- G*H)"""
-        if other is None:
-            fb_num = self.num
-            fn = np.polyadd if sign == -1 else np.polysub
-            fb_den = fn(self.den, self.num)
-            label = f"UF({self.name})"
-        else:
-            H1H2_num = np.polymul(self.num, other.num)
-            H1H2_den = np.polymul(self.den, other.den)
-            fb_num   = np.polymul(self.num, other.den)
-            fn = np.polyadd if sign == -1 else np.polysub
-            fb_den = fn(H1H2_den, H1H2_num)
-            label  = f"FB({'neg' if sign==-1 else 'pos'})({self.name})"
-        return System(fb_num, fb_den, label)
-
     def bode(self, w):        return sig.bode(self.sys, w=w)
     def impulse_resp(self):   return sig.impulse(self.sys)
     def step_resp(self):      return sig.step(self.sys)
