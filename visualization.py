@@ -54,7 +54,7 @@ def plot_bode(systems):
     ax_ph.legend(fontsize=7, loc="lower left")
     
     plt.tight_layout()
-    plt.show()
+    return fig
 
 def plot_step(systems):
     fig, ax = plt.subplots(figsize=(8, 5))
@@ -73,7 +73,7 @@ def plot_step(systems):
     ax.set_ylabel("Amplitude")
     ax.legend(fontsize=7)
     plt.tight_layout()
-    plt.show()
+    return fig
 
 def plot_impulse(systems):
     fig, ax = plt.subplots(figsize=(8, 5))
@@ -92,7 +92,7 @@ def plot_impulse(systems):
     ax.set_ylabel("Amplitude")
     ax.legend(fontsize=7)
     plt.tight_layout()
-    plt.show()
+    return fig
 
 def plot_pz(system):
     fig, ax = plt.subplots(figsize=(6, 6))
@@ -114,7 +114,7 @@ def plot_pz(system):
     ]
     ax.legend(handles=handles, fontsize=8, loc="upper right")
     plt.tight_layout()
-    plt.show()
+    return fig
 
 def plot_nyquist(system):
     fig, ax = plt.subplots(figsize=(6, 6))
@@ -135,4 +135,4 @@ def plot_nyquist(system):
     ax.set_ylabel("Imaginary")
     ax.legend(fontsize=8)
     plt.tight_layout()
-    plt.show()
+    return fig

@@ -13,12 +13,13 @@ def main():
 
     systems = [H1, H2, H_series, H_parallel]
 
+    import matplotlib.pyplot as plt
     plot_bode(systems)
     plot_step(systems)
     plot_impulse(systems)
-
     plot_pz(H_series)
     plot_nyquist(H_feedback)
+    plt.show()
 
     print("Stability:")
     for s in systems:
